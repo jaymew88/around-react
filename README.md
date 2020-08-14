@@ -33,7 +33,7 @@ This is a single page responsive website using CSS, HTML and JavaScript, followi
 
 ### Github Link
 
-Check the project out [here](https://jaymew88.github.io/around-react/).
+Check the project out [here](https://jaymew88.github.io/around-react/index.html).
 
 ### Create React App
 
