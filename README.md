@@ -9,7 +9,7 @@
 
 ### Intro
 
-This is a project called "Around The U.S.". It is an interactive page where users can add, remove, or like photos. This version uses an API with React hooks and componets to load intial card and the user profile. 
+This is a project called "Around The U.S.". It is an interactive page where users can add, remove, or like photos. USer can also change profile name, about and avatar. This version uses an API with React hooks and componets to load intial card and the user profile. 
 
 ### Figma
 
