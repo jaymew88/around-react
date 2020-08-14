@@ -35,6 +35,10 @@ This is a single page responsive website using CSS, HTML and JavaScript, followi
 
 Check the project out [here](https://jaymew88.github.io/around-react/index.html).
 
+### Future Updates
+
+Will add form validation, likes and delete buttons active.
+
 ### Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
