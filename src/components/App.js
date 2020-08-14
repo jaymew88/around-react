@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Main from './Main';
 import Header from './Header';
 import Footer from './Footer';
@@ -7,25 +7,38 @@ import PopupImage from './PopupImage';
 
 function App() {
   
-  function onEditAvatar(e) {
-    e.preventDefault();
-    document.querySelector('.popup_type_edit-pic').classList.add('popup_opened');
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
+  const [selectedCard, setSelectedCard] = useState(null);
+
+  function handleEditAvatarClick() {
+   setIsEditAvatarPopupOpen(true);
   }
-  function onEditProfile(e) {
-    e.preventDefault();
-    document.querySelector('.popup_type_edit').classList.add('popup_opened');
+  function handleEditProfileClick() {
+   setIsEditProfilePopupOpen(true);
   }
-  function onAddPlace(e) {
-    e.preventDefault();
-    document.querySelector('.popup_type_add-place').classList.add('popup_opened');
+  function handleAddPlaceClick() {
+   setIsAddPlacePopupOpen(true); 
+  }
+
+  function handleCardClick(card){
+    setSelectedCard(card);
+  }
+
+  function closeAllPopups() {
+    setSelectedCard(null);
+    setIsEditProfilePopupOpen(false);
+    setIsAddPlacePopupOpen(false);
+    setIsEditAvatarPopupOpen(false);
   }
 
   return (
     <div>
     <Header />
-    <Main />
+    <Main onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick} onCardClick={handleCardClick}  />
     <Footer />
-    <PopupWithForm name="edit" title="Edit Profile">
+    <PopupWithForm name="edit" title="Edit Profile" isOpen={isEditProfilePopupOpen} onClose={closeAllPopups}>
       <label className="popup__label" htmlFor="name-input">
         <input className="popup__field popup__field_name" name="name-input" id="name-input" type="text" placeholder="Name" pattern="[A-Za-z -]+" minLength={2} maxLength={40} required />
         <span className="popup__field-error" id="name-input-error" />
@@ -35,13 +48,13 @@ function App() {
         <span className="popup__field-error" id="job-input-error" />
       </label> 
     </PopupWithForm>
-    <PopupWithForm name="edit-pic" title="Change Userpic">
+    <PopupWithForm name="edit-pic" title="Change Userpic" isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups}>
       <label className="popup__label">
         <input className="popup__field popup__field_edit-pic" name="edit-pic" id="edit-pic" type="url" placeholder="Image Link" required />
         <span className="popup__field-error" id="edit-pic-error" />
       </label>
     </PopupWithForm>
-    <PopupWithForm name="add-place" title="New Place">
+    <PopupWithForm name="add-place" title="New Place" isOpen={isAddPlacePopupOpen} onClose={closeAllPopups}>
       <label className="popup__label">
         <input className="popup__field popup__field_place_name" id="place-input" name="place-input" type="text" placeholder="Title" minLength={1} maxLength={30} required />
         <span className="popup__field-error" id="place-input-error" />
@@ -52,9 +65,7 @@ function App() {
       </label>
     </PopupWithForm>
     <PopupWithForm name="delete" title="Are you sure?" />
-    <PopupImage />
-    {/* Cards Template */}
-    <template className="template-card" />
+    <PopupImage card={selectedCard} onClose={closeAllPopups} />
   </div>        
   );
 }
