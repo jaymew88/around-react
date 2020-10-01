@@ -54,9 +54,7 @@ function App() {
         const newCards = cards.filter((card) => card._id !== deletedCard._id)
         setCards(newCards);
         setIsDeletePopupOpen(false);
-    }).catch((err) => {
-        console.log(err);
-    });
+    }).catch((err) => console.log(err));
   }
 
   function handleUpdateUser({ name, about}) {
@@ -73,7 +71,7 @@ function App() {
     }).catch((err) => console.log(err));
   }
 
-  function handleAddPlace({name, link}) {
+  function handleAddPlace({ name, link }) {
     api.newCard({name: name, link: link,}).then((newCard) => {
         setCards([...cards, newCard]);
         setIsAddPlacePopupOpen(false);
