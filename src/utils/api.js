@@ -4,10 +4,6 @@ class Api {
     this.baseUrl = baseUrl;
   }
 
-//   getAppInfo(){
-//     return Promise.all([this.getInitialCards(), this.getUserInfo()])
-// }
-
   getInitialCards() {
     return fetch(this.baseUrl + '/cards', {
       headers: this.headers,
@@ -103,7 +99,7 @@ class Api {
       .catch((err) => console.log(err));
   }
 
-  setUserAvatar(avatar) {
+  setUserAvatar({ avatar }) {
     return fetch(this.baseUrl + '/users/me/avatar', {
       method: "PATCH",
       headers: this.headers,
