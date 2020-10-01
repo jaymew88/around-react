@@ -4,21 +4,16 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 function Card(props) {
 
   const currentUser = React.useContext(CurrentUserContext);
-
   // Checking if you are the owner of the current card
   const isOwn = props.card.owner._id === currentUser._id;
-
   // Creating a variable which you'll then set in `className` for the delete button
   const cardDeleteButtonClassName = (
     `card__delete-button ${isOwn ? '' : 'card__delete-button_hidden'}`
     );
-
   // Check if the card was liked by the current user
   const isLiked = props.card.likes.some(i => i._id === currentUser._id);
-
   // Create a variable which you then set in `className` for the like button
   const cardLikeButtonClassName = (`button card__like-button ${isLiked ? 'card__like-button_active' : ''}`); 
-  
   const likesTotal = props.card.likes.length;
 
   function handleCardClick() {
@@ -39,12 +34,27 @@ function Card(props) {
 
   return (
     <li className="card" data-id="#">
-      <button type="button" className={cardDeleteButtonClassName} onClick={handleCardDelete} aria-label="Delete Button" />
-      <img className="card__img" alt={props.card.name} src={props.card.link} onClick={handleCardClick} />
+      <button 
+        type="button" 
+        className={cardDeleteButtonClassName} 
+        onClick={handleCardDelete} 
+        aria-label="Delete Button" 
+      ></button>
+      <img 
+        className="card__img" 
+        alt={props.card.name} 
+        src={props.card.link} 
+        onClick={handleCardClick} 
+      />
       <div className="card__wrapper">
         <h3 className="card__name">{props.card.name}</h3>
         <div className="card__like">
-          <button type="button" className={cardLikeButtonClassName} onClick={handleLikeClick} aria-label="Like Button" />
+          <button 
+            type="button" 
+            className={cardLikeButtonClassName} 
+            onClick={handleLikeClick} 
+            aria-label="Like Button" 
+          ></button>
           <span className="card__like-count">{likesTotal}</span>
         </div>
       </div>

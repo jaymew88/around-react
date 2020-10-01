@@ -12,7 +12,7 @@ function ConfirmationPopup(props) {
         <PopupWithForm 
             name="delete" 
             title="Are you sure?"
-            submitBtnText="Yes"
+            submitButtonText="Yes"
             isOpen={props.isOpen} 
             onClose={props.onClose} 
             onSubmit={handleSubmit} 
