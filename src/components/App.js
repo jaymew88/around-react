@@ -25,9 +25,7 @@ function App() {
     api.getUserInfo().then((userProfile) => {
         setCurrentUser(userProfile);
     }).catch((err) => console.log(err));
-  }, []);
 
-  React.useEffect(() => {
     api.getInitialCards().then((cards) => {
       cards.forEach((card) => {
         setCards([...cards, card]);
@@ -43,7 +41,7 @@ function App() {
       const newCards = cards.map((c) => c._id === card._id ? newCard : c);
       // Update the state
       setCards(newCards);
-    });
+    }).catch((err) => console.log(err));
   }
 
   function handleCardDelete(deletedCard) {
@@ -107,7 +105,7 @@ function App() {
 
   function closeAllPopups() {
     window.removeEventListener('keyup', handleEscClose);
-    setSelectedCard(false);
+    setSelectedCard(null);
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
