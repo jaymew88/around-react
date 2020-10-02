@@ -66,7 +66,7 @@ class Api {
       .catch((err) => console.log(err)); 
   }
 
-  updateLike({ cardLiked, cardId }) {
+  updateLike(cardId, cardLiked) {
     return fetch(this.baseUrl + '/cards/likes/' + cardId, {
       method: cardLiked ? "PUT" : "DELETE",
       headers: this.headers,

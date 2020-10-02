@@ -3,7 +3,7 @@ import api from '../utils/api';
 import Main from './Main';
 import Header from './Header';
 import Footer from './Footer';
-import PopupImage from './PopupImage';
+import ImagePopup from './ImagePopup';
 import EditProfilePopup from './EditProfilePopup';
 import EditAvatarPopup from './EditAvatarPopup';
 import AddPlacePopup from './AddPlacePopup';
@@ -24,7 +24,6 @@ function App() {
   React.useEffect(() => {
     api.getUserInfo().then((userProfile) => {
         setCurrentUser(userProfile);
-        console.log(userProfile);
     }).catch((err) => console.log(err));
   }, []);
 
@@ -32,7 +31,6 @@ function App() {
     api.getInitialCards().then((cards) => {
       cards.forEach((card) => {
         setCards([...cards, card]);
-        console.log(card);
       });
     }).catch((err) => console.log(err));
   }, []);
@@ -40,7 +38,6 @@ function App() {
   function handleCardLike(card) {
     // Check one more time if this card was already liked
     const isLiked = card.likes.some(i => i._id === currentUser._id);
-    // Send a request to the API and getting the updated card data
     api.updateLike(card._id, !isLiked).then((newCard) => {
       // Create a new array based on the existing one and putting a new card into it
       const newCards = cards.map((c) => c._id === card._id ? newCard : c);
@@ -153,7 +150,7 @@ function App() {
             onConfirmation={handleCardDelete} 
             confirmSelectedCard={deletedCard}
           />
-          <PopupImage card={selectedCard} onClose={closeAllPopups} />
+          <ImagePopup card={selectedCard} onClose={closeAllPopups} />
       </CurrentUserContext.Provider>
     </div>  
    </>       

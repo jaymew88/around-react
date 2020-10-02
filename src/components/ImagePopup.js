@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PopupImage(props) {
+function ImagePopup(props) {
   return (
     <>
       <div className={`popup popup_type_image ${props.card ? "popup_opened" : ""}`}>
@@ -14,4 +14,4 @@ function PopupImage(props) {
   );
 }
 
-export default PopupImage;
+export default ImagePopup;
