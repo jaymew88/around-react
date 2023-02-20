@@ -13,11 +13,8 @@ This is a project called "Around The U.S.". It is an interactive page where user
 
 ### Figma
 
-* [Link to the project on Figma](https://www.figma.com/file/lNsn9aE1Be6bvg9FeAzRXT/Sprint-3-From-Portland-to-Portland-desktop-mobile?node-id=0%3A1)
+* [Link to the project on Figma](https://www.figma.com/file/mUgu8OSHWE0M6p6vfwmdu9/Sprint-4%3A-Around-The-U.S.-%2F-desktop-%2B-mobile?node-id=0%3A1&t=8N3jnjbk6UBfTmxN-0)
 
-* [Link to second part Figma Design](https://www.figma.com/file/avLHzpJw2dmU2NaDATZ6CX/Sprint-5%3A-Around-The-U.S.-%2F-desktop-%2B-mobile?node-id=0%3A1)
-
-* [Link to third part Figma Design](https://www.figma.com/file/KUbYgXnYElfzxCbcrlsOCE/Sprint-6%3A-Around-The-U.S.?node-id=0%3A1)
 
 ### Description
 
